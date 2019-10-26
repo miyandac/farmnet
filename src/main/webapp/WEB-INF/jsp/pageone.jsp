@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home
-    Created on : 26-Oct-2019, 23:06:39
+    Document   : pageone
+    Created on : 26-Oct-2019, 23:19:06
     Author     : CHILIKWEM
 --%>
 
@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome home!</h1>
+        <h1>Hello World!</h1>
         
-        <a href="login">Login</a>
+        <a href="home">Home</a>
     </body>
 </html>

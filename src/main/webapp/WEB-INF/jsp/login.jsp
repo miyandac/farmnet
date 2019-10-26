@@ -12,6 +12,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!Welcome to India</h1>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" /> </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" /> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button>Login</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <a href="home">Home</a>
     </body>
 </html>

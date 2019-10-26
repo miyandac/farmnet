@@ -15,14 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class LoginController {
-    
+
     @RequestMapping(path = {"/login"})
-    public String login(Model model){
+    public String login(Model model) {
         return "login";
     }
-    
-     @RequestMapping(path = {"/home"})
-    public String home(Model model){
+
+    @RequestMapping(path = {"/home"})
+    public String home(Model model) {
         return "home";
+    }
+
+    @RequestMapping(path = {"/pageone"})
+    public String pageone(Model model) {
+        return "pageone";
     }
 }
