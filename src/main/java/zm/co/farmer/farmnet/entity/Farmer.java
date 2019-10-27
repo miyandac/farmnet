@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,8 +23,10 @@ public class Farmer {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     private Integer id;
+    @ManyToOne
     private User user;
-    private Cooperative cooperative;   
+    @ManyToOne
+    private Govtcoperative govtcoperative;
 
     public Farmer() {
     }
@@ -44,17 +47,18 @@ public class Farmer {
         this.user = user;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Govtcoperative getGovtcoperative() {
+        return govtcoperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setGovtcoperative(Govtcoperative govtcoperative) {
+        this.govtcoperative = govtcoperative;
     }
 
     @Override
     public String toString() {
-        return "Farmer{" + "id=" + id + ", user=" + user + ", cooperative=" + cooperative + '}';
+        return "Farmer{" + "id=" + id + ", user=" + user + ", govtcoperative=" + govtcoperative + '}';
     }
     
+        
 }
