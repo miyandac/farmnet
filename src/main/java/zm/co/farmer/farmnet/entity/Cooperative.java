@@ -1,4 +1,5 @@
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name= "fisp_cooperative")
-public class Cooperative {
+public class Cooperative implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
