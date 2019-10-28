@@ -5,9 +5,11 @@
  */
 package zm.co.farmer.farmnet.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import zm.co.farmer.farmnet.service.UserService;
 
 /**
  *
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class LoginController {
+    
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(path = {"/login"})
     public String login(Model model) {
@@ -28,6 +33,9 @@ public class LoginController {
 
     @RequestMapping(path = {"/pageone"})
     public String pageone(Model model) {
+        
+        model.addAttribute("users", userService.getAllUsers());
+        
         return "pageone";
     }
 }
