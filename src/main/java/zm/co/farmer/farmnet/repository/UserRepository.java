@@ -5,6 +5,7 @@
  */
 package zm.co.farmer.farmnet.repository;
 
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import zm.co.farmer.farmnet.entity.User;
 
@@ -13,5 +14,9 @@ import zm.co.farmer.farmnet.entity.User;
  * @author Mumbi Chishimba
  */
 public interface UserRepository extends CrudRepository<User, Integer> {
+
+    public User findByUsername(String username);
+
+    public List<User> findByUserrole(int userRole);
     
 }

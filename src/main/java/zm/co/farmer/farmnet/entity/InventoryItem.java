@@ -27,7 +27,7 @@ public class InventoryItem {
     private String type;
     private String supplier;
     private Float quantity;
-    private String quantity_type;
+    private String quantitytype;
     private String batchid;
     private String barcodenumber;
     private boolean available;
@@ -75,12 +75,12 @@ public class InventoryItem {
         this.quantity = quantity;
     }
 
-    public String getQuantity_type() {
-        return quantity_type;
+    public String getQuantitytype() {
+        return quantitytype;
     }
 
-    public void setQuantity_type(String quantity_type) {
-        this.quantity_type = quantity_type;
+    public void setQuantitytype(String quantitytype) {
+        this.quantitytype = quantitytype;
     }
 
     public String getBatchid() {
@@ -109,7 +109,7 @@ public class InventoryItem {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "id=" + id + ", name=" + name + ", type=" + type + ", supplier=" + supplier + ", quantity=" + quantity + ", quantity_type=" + quantity_type + ", batchid=" + batchid + ", barcodenumber=" + barcodenumber + ", available=" + available + '}';
+        return "InventoryItem{" + "id=" + id + ", name=" + name + ", type=" + type + ", supplier=" + supplier + ", quantity=" + quantity + ", quantity_type=" + quantitytype + ", batchid=" + batchid + ", barcodenumber=" + barcodenumber + ", available=" + available + '}';
     }
     
     

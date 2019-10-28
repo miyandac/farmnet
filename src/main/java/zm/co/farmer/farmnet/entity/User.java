@@ -18,7 +18,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "fisp_user")
+@Table(name = "fisp_user", uniqueConstraints = {
+    @javax.persistence.UniqueConstraint(columnNames = {"username"})})
 public class User {
     
     @Id
@@ -26,6 +27,8 @@ public class User {
     private Integer id;
     private String firstname;
     private String lastname;
+    private String username;
+    private String password;
     private String othername;
     private String gender;
     private String address;
@@ -117,10 +120,25 @@ public class User {
         this.userrole = userrole;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", othername=" + othername + ", gender=" + gender + ", address=" + address + ", city=" + city + ", dateofbirth=" + dateofbirth + ", email=" + email + ", userrole=" + userrole + '}';
-    } 
-    
+        return "User{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username + ", password=" + password + ", othername=" + othername + ", gender=" + gender + ", address=" + address + ", city=" + city + ", dateofbirth=" + dateofbirth + ", email=" + email + ", userrole=" + userrole + '}';
+    }    
     
 }
