@@ -20,8 +20,7 @@ import javax.persistence.Table;
 @Table(name = "fisp_farmer")
 public class Farmer {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    
+    @GeneratedValue(strategy=GenerationType.IDENTITY)    
     private Integer id;
     @ManyToOne
     private User user;

@@ -30,6 +30,7 @@ public class InventoryItem {
     private String quantity_type;
     private String batchid;
     private String barcodenumber;
+    private boolean available;
 
     public InventoryItem() {
     }
@@ -98,9 +99,19 @@ public class InventoryItem {
         this.barcodenumber = barcodenumber;
     }  
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
     @Override
     public String toString() {
-        return "InventoryItem{" + "id=" + id + ", name=" + name + ", type=" + type + ", supplier=" + supplier + ", quantity=" + quantity + ", quantity_type=" + quantity_type + ", batchid=" + batchid + ", barcodenumber=" + barcodenumber + '}';
+        return "InventoryItem{" + "id=" + id + ", name=" + name + ", type=" + type + ", supplier=" + supplier + ", quantity=" + quantity + ", quantity_type=" + quantity_type + ", batchid=" + batchid + ", barcodenumber=" + barcodenumber + ", available=" + available + '}';
     }
+    
+    
     
 }

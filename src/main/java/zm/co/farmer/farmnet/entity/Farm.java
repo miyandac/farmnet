@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -29,6 +30,7 @@ public class Farm {
     private String name;
     private float length;
     private float bridth;
+    @ManyToOne
     private User user;
 
     public Farm(){
