@@ -34,6 +34,7 @@ public class LoginController {
     @RequestMapping(path = {"/pageone"})
     public String pageone(Model model) {
         
+        // Inject user list
         model.addAttribute("users", userService.getAllUsers());
         
         return "pageone";
