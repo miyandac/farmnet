@@ -14,4 +14,6 @@ import zm.co.farmer.farmnet.entity.Farm;
  */
 public interface FarmRepository extends CrudRepository<Farm, Integer> {
     
+    
+    
 }
