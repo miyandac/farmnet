@@ -20,5 +20,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     public List<User> findByUserrole(int userRole);
     
     public List<User> findByGender(String gender);
+
+    public User findByUsernameAndPassword(String username, String generateMD5);
     
 }

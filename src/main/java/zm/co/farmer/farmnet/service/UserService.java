@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zm.co.farmer.farmnet.entity.User;
 import zm.co.farmer.farmnet.repository.UserRepository;
+import zm.co.farmer.farmnet.util.MD5Hash;
 
 /**
  *
@@ -21,6 +22,17 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    public User login(String username, String password){
+        User user = null;
+        
+        try {
+            user = userRepository.findByUsernameAndPassword(username, MD5Hash.generateMD5(password));
+        } catch (Exception e) {
+        }
+        
+        return user;
+    }
 
     /**
      * Either add a new user or update an existing user. To update a user, the

@@ -5,10 +5,28 @@
  */
 package zm.co.farmer.farmnet.service;
 
+import com.google.common.collect.Lists;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import zm.co.farmer.farmnet.entity.InventoryItem;
+import zm.co.farmer.farmnet.repository.InventoryItemRepository;
+
 /**
  *
  * @author Mumbi Chishimba
  */
+@Service
 public class InventoryService {
+    @Autowired
+    private InventoryItemRepository inventoryItemRepository;
+    
+    /***
+     * Get all items that are in the inventory
+     * @return 
+     */
+    List<InventoryItem> getAllInventoryItems(){
+        return Lists.newArrayList(inventoryItemRepository.findAll());
+    }
     
 }
