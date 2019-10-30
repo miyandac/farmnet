@@ -22,15 +22,15 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    
-    public User login(String username, String password){
+
+    public User login(String username, String password) {
         User user = null;
-        
+
         try {
             user = userRepository.findByUsernameAndPassword(username, MD5Hash.generateMD5(password));
         } catch (Exception e) {
         }
-        
+
         return user;
     }
 
@@ -66,8 +66,9 @@ public class UserService {
 
     /**
      * Get all users of a particular user type
+     *
      * @param userRole
-     * @return 
+     * @return
      */
     public List<User> getUsersByUserType(int userRole) {
         return userRepository.findByUserrole(userRole);
