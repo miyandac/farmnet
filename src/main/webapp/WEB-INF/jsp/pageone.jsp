@@ -10,10 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Users</title>
         <%@include file="fragments/css.jsp" %>
     </head>
-    <body>
+    <body id="page-top">
         <%@include file="fragments/header.jsp" %>
 
 

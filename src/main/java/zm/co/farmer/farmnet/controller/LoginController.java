@@ -21,6 +21,12 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    
+    @RequestMapping(path = {"/"})
+    public String homepage(Model model) {
+        return "login";
+    }
+    
     @RequestMapping(path = {"/login"})
     public String login(Model model) {
         return "login";
