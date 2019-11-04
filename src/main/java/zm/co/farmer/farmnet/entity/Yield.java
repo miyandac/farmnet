@@ -31,6 +31,7 @@ public class Yield {
     public Yield(){
     }
 
+
     public Integer getYieldid() {
         return yieldid;
     }

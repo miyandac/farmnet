@@ -52,5 +52,16 @@ public class LoginController {
         model.addAttribute("users", userService.getAllUsers());
 
         return "pageone";
+        
+    }
+    
+    @RequestMapping(path = {"/yield"}, method = RequestMethod.POST)
+    public String yield(Model model, @ModelAttribute("yield") String yield) {
+      // add yield
+        model.addAttribute("yield");
+        System.err.println("Add yield Page");
+
+        return "yield";
+        
     }
 }
