@@ -22,11 +22,11 @@
                 <h6 class="m-0 font-weight-bold text-primary">Yield</h6>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                  <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Yield Id</th>
+                                <th>Yield id</th>
                                 <th>Crop</th>
                                 <th>Weight</th>
                                 <th>Field Id</th>
@@ -35,13 +35,13 @@
                         </thead>
                         <tbody>
 
-                            <c:forEach items="${yield}" var="a">
+                            <c:forEach items="${yield}" var="y">
                                 <tr>
-                                    <td>${a.yieldid}</td>
+                                    <td>${y.yieldid}</td>
                                     <td>${a.crop}</td>
                                     <td>${a.weight}</td>
                                     <td>${a.fieldid}</td>
-                                    <td>${a.dateofyield}</td>
+                                    <td>${a.dateoffield}</td>
                                 </tr>
                             </c:forEach>
 

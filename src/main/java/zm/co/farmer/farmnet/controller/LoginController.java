@@ -5,6 +5,9 @@
  */
 package zm.co.farmer.farmnet.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import zm.co.farmer.farmnet.service.UserService;
+import zm.co.farmer.farmnet.service.YieldService;
+
 
 /**
  *
@@ -22,6 +27,8 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    private YieldService yieldService;
+
 
     @RequestMapping(path = {"/"})
     public String homepage(Model model) {
@@ -55,13 +62,13 @@ public class LoginController {
         
     }
     
-    @RequestMapping(path = {"/yield"}, method = RequestMethod.POST)
-    public String yield(Model model, @ModelAttribute("yield") String yield) {
-      // add yield
-        model.addAttribute("yield");
-        System.err.println("Add yield Page");
+      @RequestMapping(path = {"/yield"})
+    public String yield(Model model) {
 
-        return "yield";
-        
+        // Inject yield list
+        model.addAttribute("yield", yieldService.getYield());
+
+     return "yield";
     }
+   
 }
