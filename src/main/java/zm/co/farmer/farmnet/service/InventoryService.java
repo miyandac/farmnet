@@ -18,15 +18,21 @@ import zm.co.farmer.farmnet.repository.InventoryItemRepository;
  */
 @Service
 public class InventoryService {
+
     @Autowired
     private InventoryItemRepository inventoryItemRepository;
-    
-    /***
+
+    /**
+     * *
      * Get all items that are in the inventory
-     * @return 
+     *
+     * @return
      */
-    List<InventoryItem> getAllInventoryItems(){
+    public List<InventoryItem> getAllInventoryItems() {
         return Lists.newArrayList(inventoryItemRepository.findAll());
     }
-    
+
+    public InventoryItem addInventoryItem(InventoryItem inventoryItem) {
+        return inventoryItemRepository.save(inventoryItem);
+    }
 }

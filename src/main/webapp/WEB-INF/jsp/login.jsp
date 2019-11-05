@@ -48,7 +48,7 @@
                                         </div>
                                         <form class="user" method="POST" action="${contextPath}/login">
                                             <div class="form-group">
-                                                <input name="username" type="email" class="form-control form-control-user" placeholder="Enter Email Address...">
+                                                <input name="username" type="text" class="form-control form-control-user" placeholder="Enter Username...">
                                             </div>
                                             <div class="form-group">
                                                 <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">

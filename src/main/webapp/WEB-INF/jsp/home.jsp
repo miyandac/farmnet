@@ -5,15 +5,20 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="fragments/requirements.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home</title>
+        <%@include file="fragments/css.jsp" %>
     </head>
-    <body>
+    <body id="page-top">
+        <%@include file="fragments/header.jsp" %>
         <h1>Welcome home!</h1>
+
+        <a href="${contextPath}/addinventory">Add Inventory item</a>
         
-        <a href="login">Login</a>
+        <%@include file="fragments/footer.jsp" %>
     </body>
 </html>
