@@ -107,13 +107,5 @@ public class LoginController {
         
     }
     
-      @RequestMapping(path = {"/yield"})
-    public String yield(Model model) {
-
-        // Inject yield list
-        model.addAttribute("yield", yieldService.getYield());
-
-     return "yield";
-    }
-   
+    
 }
