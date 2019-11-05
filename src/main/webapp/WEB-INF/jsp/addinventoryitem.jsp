@@ -21,7 +21,7 @@
                 Add Inventory Item
             </div>
             <div class="card-body">
-                <form>
+                <form method="POST" action="${contextPath}/addinventory">
                     <div class="form-group">
                         <label for="barcode">Barcode Number</label>
                         <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Barcode Number">
