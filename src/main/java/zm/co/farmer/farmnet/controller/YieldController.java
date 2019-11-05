@@ -43,7 +43,7 @@ public class YieldController {
         yi.setDateofyield(date);
         
         model.addAttribute("yield");   
-        System.out.println("Crop " + crop);
+        //System.out.println("Crop " + crop);
 
         return "yield";
         
