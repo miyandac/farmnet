@@ -31,9 +31,9 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="${contextPath}/yield">
           <i class="fas fa-fw fa-table"></i>
-          <span>Coorperatives</span></a>
+          <span>Yield</span></a>
       </li>
 
       <!-- Nav Item - Tables -->

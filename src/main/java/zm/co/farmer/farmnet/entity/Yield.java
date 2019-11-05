@@ -27,6 +27,7 @@ public class Yield {
     Double weight;
     Integer fieldid;
     Date dateofyield;
+    Float quantity;
    
     public Yield(){
     }
@@ -72,10 +73,19 @@ public class Yield {
         this.dateofyield = dateofyield;
     }
 
+    public Float getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Float quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
-        return "Yield{" + "yieldid=" + yieldid + ", crop=" + crop + ", weight=" + weight + ", fieldid=" + fieldid + ", dateofyield=" + dateofyield + '}';
+        return "Yield{" + "yieldid=" + yieldid + ", crop=" + crop + ", weight=" + weight + ", fieldid=" + fieldid + ", dateofyield=" + dateofyield + ", quantity=" + quantity + '}';
     }
-   
+    
+
 
 }

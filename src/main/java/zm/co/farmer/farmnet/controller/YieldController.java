@@ -11,10 +11,13 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import zm.co.farmer.farmnet.entity.User;
 import zm.co.farmer.farmnet.entity.Yield;
+import zm.co.farmer.farmnet.service.UserService;
 import zm.co.farmer.farmnet.service.YieldService;
 
 /**
@@ -25,6 +28,8 @@ import zm.co.farmer.farmnet.service.YieldService;
 public class YieldController {
     @Autowired
     private YieldService yieldService;
+    @Autowired
+    private UserService userService;
     
     
     @RequestMapping(path = {"/yield"}, method =RequestMethod.GET)
@@ -32,22 +37,46 @@ public class YieldController {
        return "yield";
     }
     
-     @RequestMapping(path = {"/yield/add"}, method = RequestMethod.POST)
-    public String yield(Model model, @ModelAttribute("crop") String crop,  @ModelAttribute("weight") String weight, @ModelAttribute("dateofyield") String dateofyield) throws ParseException {
+     @RequestMapping(path = {"/addyield"}, method =RequestMethod.GET)
+    public String addyield(Model model, @CookieValue("user_session_id") String username){
+        
+        User user = userService.getUserByUsername(username);
+        model.addAttribute("user", user);
+        
+       return "addyield";
+    }
+    
+     @RequestMapping(path = {"/addyield"}, method = RequestMethod.POST)
+    public String yield(Model model, 
+            @ModelAttribute("crop") String crop,  
+            @ModelAttribute("weight") String weight, 
+            @ModelAttribute("quantity") Float quantity, 
+            @ModelAttribute("dateofyield") String dateofyield) throws ParseException {
      
         SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
         Date date = format.parse(dateofyield);
-        Yield yi = new Yield();
-        yi.setCrop(crop);
-        yi.setWeight(Double.parseDouble(weight));
-        yi.setDateofyield(date);
+        Yield yield = new Yield();
+        yield.setCrop(crop);
+        yield.setWeight(Double.parseDouble(weight));
+        yield.setDateofyield(date);
+        yield.setQuantity(quantity);
         
-        model.addAttribute("yield");   
-        //System.out.println("Crop " + crop);
-
-        return "yield";
+        yield = yieldService.addOrUpdate(yield);
+        
+        return "redirect:/yield";
         
     }
     
-    
+      @RequestMapping(path = {"/yield"})
+    public String yieldd(Model model, @CookieValue("user_session_id") String username) {
+
+        // Inject yield list
+        User user = userService.getUserByUsername(username);
+        model.addAttribute("user", user);
+        model.addAttribute("yield", yieldService.getYield());
+        
+          System.out.println(yieldService.getYield());
+
+        return "yield";
+    }
 }

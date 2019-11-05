@@ -23,6 +23,7 @@
             </div>
             <div class="card-body">
                   <div class="table-responsive">
+                   <a class="btn btn-success" href="${contextPath}/addyield">Add Yield</a>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -35,13 +36,13 @@
                         </thead>
                         <tbody>
 
-                            <c:forEach items="${yield}" var="y">
+                            <c:forEach items="${yield}" var="a">
                                 <tr>
-                                    <td>${y.yieldid}</td>
+                                    <td>${a.yieldid}</td>
                                     <td>${a.crop}</td>
                                     <td>${a.weight}</td>
                                     <td>${a.fieldid}</td>
-                                    <td>${a.dateoffield}</td>
+                                    <td>${a.dateofyield}</td>
                                 </tr>
                             </c:forEach>
 
