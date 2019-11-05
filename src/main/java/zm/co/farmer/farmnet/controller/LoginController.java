@@ -107,5 +107,15 @@ public class LoginController {
         
     }
     
+        @RequestMapping(path = {"/field"})
+        public String field(Model model) {
+
+        // Inject user list
+        model.addAttribute("users", yieldService.getYield());
+
+        return "field";
+        
+    }
+    
     
 }
