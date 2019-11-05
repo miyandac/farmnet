@@ -44,7 +44,11 @@
                     </div>
                     <div class="form-group">
                         <label for="available">Available (Change to select)</label>
-                        <input type="text" class="form-control" id="available" name="available" placeholder="Name">
+                        <select class="form-control" name="available" id="available">
+                            <option value="1">Yes</option>
+                            <option value="2">No</option>
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label for="itemtype">Item Type (Select)</label>
