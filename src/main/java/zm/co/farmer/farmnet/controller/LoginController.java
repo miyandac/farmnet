@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,6 +87,24 @@ public class LoginController {
             return "redirect:/login?error=invalidusernamepassword";
         }
     }
+    //invalidate session
+    @RequestMapping(path = {"/logout"}, method = RequestMethod.GET)
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        
+        Cookie cookie= new Cookie("user_session_id", null);
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        
+        HttpSession session = request.getSession();
+        
+        if(session != null){
+            session.invalidate();
+        }
+        
+        return "redirect:/";
+    }
+    
 
     @RequestMapping(path = {"/home"})
     public String home(Model model, @CookieValue("user_session_id") String username) {
