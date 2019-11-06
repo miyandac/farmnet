@@ -5,6 +5,8 @@
  */
 package zm.co.farmer.farmnet.service;
 
+import com.google.common.collect.Lists;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zm.co.farmer.farmnet.entity.Farm;
@@ -22,6 +24,10 @@ public class FarmService {
     
     public Farm addFarm(Farm farm){
         return farmRepository.save(farm);
+    }
+
+    public List<Farm> getAllFarms() {
+        return Lists.newArrayList(farmRepository.findAll());
     }
     
     

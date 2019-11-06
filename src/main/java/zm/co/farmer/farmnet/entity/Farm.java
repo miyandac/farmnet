@@ -29,7 +29,7 @@ public class Farm {
     private String location;
     private String name;
     private float length;
-    private float bridth;
+    private float breadth;
     @ManyToOne
     private User user;
 
@@ -68,12 +68,12 @@ public class Farm {
         this.length = length;
     }
 
-    public float getBridth() {
-        return bridth;
+    public float getBreadth() {
+        return breadth;
     }
 
-    public void setBridth(float bridth) {
-        this.bridth = bridth;
+    public void setBreadth(float breadth) {
+        this.breadth = breadth;
     }
 
     public User getUser() {
@@ -86,7 +86,7 @@ public class Farm {
 
     @Override
     public String toString() {
-        return "Farm{" + "id=" + id + ", location=" + location + ", name=" + name + ", length=" + length + ", bridth=" + bridth + ", user=" + user + '}';
+        return "Farm{" + "id=" + id + ", location=" + location + ", name=" + name + ", length=" + length + ", bridth=" + breadth + ", user=" + user + '}';
     }
 
 
