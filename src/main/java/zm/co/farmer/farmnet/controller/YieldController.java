@@ -26,18 +26,14 @@ import zm.co.farmer.farmnet.service.YieldService;
  */
 @Controller
 public class YieldController {
+    
     @Autowired
     private YieldService yieldService;
     @Autowired
     private UserService userService;
     
-    
-    @RequestMapping(path = {"/yield"}, method =RequestMethod.GET)
-    public String viewyield(Model model){
-       return "yield";
-    }
-    
-     @RequestMapping(path = {"/addyield"}, method =RequestMethod.GET)
+   
+    @RequestMapping(path = {"/addyield"}, method =RequestMethod.GET)
     public String addyield(Model model, @CookieValue("user_session_id") String username){
         
         User user = userService.getUserByUsername(username);
@@ -46,7 +42,7 @@ public class YieldController {
        return "addyield";
     }
     
-     @RequestMapping(path = {"/addyield"}, method = RequestMethod.POST)
+    @RequestMapping(path = {"/addyield"}, method = RequestMethod.POST)
     public String yield(Model model, 
             @ModelAttribute("crop") String crop,  
             @ModelAttribute("weight") String weight, 
@@ -67,16 +63,14 @@ public class YieldController {
         
     }
     
-      @RequestMapping(path = {"/yield"})
-    public String yieldd(Model model, @CookieValue("user_session_id") String username) {
 
-        // Inject yield list
-        User user = userService.getUserByUsername(username);
-        model.addAttribute("user", user);
+    @RequestMapping(path = {"/yield"})
+    public String viewyield(Model model) {
+
+        // Inject user list
         model.addAttribute("yield", yieldService.getYield());
-        
-          System.out.println(yieldService.getYield());
 
         return "yield";
     }
+   
 }
