@@ -29,6 +29,10 @@ public class FarmService {
     public List<Farm> getAllFarms() {
         return Lists.newArrayList(farmRepository.findAll());
     }
+
+    public Farm getById(Integer farmid) {
+        return farmRepository.findById(farmid).get();
+    }
     
     
     

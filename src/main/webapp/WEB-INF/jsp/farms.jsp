@@ -23,7 +23,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <a class="btn btn-success" href="${contextPath}/addfarm">Add Farm</a>
+                    
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -31,6 +31,7 @@
                                 <th>Breadth</th>
                                 <th>Suppler</th>
                                 <th>Quantity </th>
+                                <th>&nbsp; </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +42,7 @@
                                     <td>${a.breadth}</td>
                                     <td>${a.length}</td>
                                     <td>${a.location}</td>
+                                    <td><a href="${contextPath}/${a.id}/fields" class="btn btn-success">View Fields</a></td>
                                 </tr>
                             </c:forEach>
 

@@ -5,6 +5,7 @@
  */
 package zm.co.farmer.farmnet.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zm.co.farmer.farmnet.entity.Farm;
@@ -22,6 +23,12 @@ public class FieldService {
     
     public Field addField(Field field){
         return fieldRepository.save(field);
+        
+    }
+    
+    public List<Field> getFieldsByFarm(Farm farm){
+    
+        return fieldRepository.findByFarm(farm);
     }
     
 }

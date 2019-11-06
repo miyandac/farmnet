@@ -16,8 +16,11 @@
         <body id="page-top">
     <%@include file="fragments/header.jsp" %>
     <body>
-        <h1>View Field</h1>
-        <a class="btn btn-success" href="${contextPath}/addfield">Add Field</a>
+       
+        <a class="btn btn-success" href="${contextPath}/${farm.id}/addfield">Add Field</a>
+        
+        <br/>
+        ${fields}
     <%@include file="fragments/footer.jsp" %>
     </body>
 </html>
