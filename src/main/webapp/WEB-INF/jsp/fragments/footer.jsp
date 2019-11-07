@@ -8,7 +8,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; The group in charge of stuff</span>
+            <span>Copyright &copy; Team Farmer</span>
           </div>
         </div>
       </footer>

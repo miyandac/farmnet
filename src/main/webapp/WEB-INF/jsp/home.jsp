@@ -15,9 +15,8 @@
     </head>
     <body id="page-top">
         <%@include file="fragments/header.jsp" %>
-        <h1>Welcome home!</h1>
+        <h1>Welcome to Farm Management System</h1>
 
-        <a href="${contextPath}/addinventory">Add Inventory item</a>
         
         <%@include file="fragments/footer.jsp" %>
     </body>
