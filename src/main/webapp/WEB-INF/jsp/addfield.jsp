@@ -39,18 +39,6 @@
                         <input type="number" class="form-control" id="length" name="length" placeholder="length">
                     </div>
                     <div class="form-group">
-                        <label for="farm">Farm</label>
-                        <select class="form-control" name="farm" id="farm">
-                            <option value="1">Yes</option>
-                            <option value="2">No</option>
-                        </select>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="itemtype">Item Type (Select)</label>
-                        <input type="text" class="form-control" id="itemtype" name="itemtype" placeholder="Item Type">
-                    </div>
-                    <div class="form-group">
                         <input type="submit" class="btn btn-success btn-block" value="Submit" />
                     </div>
                 </form>
