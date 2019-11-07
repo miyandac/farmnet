@@ -29,8 +29,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Breadth</th>
-                                <th>Suppler</th>
-                                <th>Quantity </th>
+                                <th>Length</th>
+                                <th>Location </th>
                                 <th>&nbsp; </th>
                             </tr>
                         </thead>
