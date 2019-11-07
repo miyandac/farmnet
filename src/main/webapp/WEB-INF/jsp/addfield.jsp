@@ -18,7 +18,7 @@
 
         <div class="card mb-4">
             <div class="card-header">
-                Add Inventory Item
+                Add Field
             </div>
             <div class="card-body">
                 <form method="POST" action="${contextPath}/${farm.id}/addfield"> 
