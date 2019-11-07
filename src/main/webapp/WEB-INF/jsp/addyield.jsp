@@ -25,19 +25,19 @@
                 <form method="POST" action="${contextPath}/addyield">
                     <div class="form-group">
                         <label for="">Crop</label>
-                        <input type="text" class="form-control" id ="crop" name ="crop" placeholder="crop">
+                        <input type="text" class="form-control" id ="crop" name ="crop" placeholder="crop" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Weight</label>
-                        <input type="number" class="form-control" id ="weight" name ="weight" placeholder="weight">
+                        <input type="number" class="form-control" id ="weight" name ="weight" placeholder="weight" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Date of Yield</label>
-                        <input type="date" class="form-control" id ="dateofyield" name ="dateofyield" placeholder="date of yield">
+                        <input type="date" class="form-control" id ="dateofyield" name ="dateofyield" placeholder="date of yield" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Quantity</label>
-                        <input type="number" class="form-control" id ="quantity" name ="quantity" placeholder="Quantity">
+                        <input type="number" class="form-control" id ="quantity" name ="quantity" placeholder="Quantity" required="">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success btn-block" value="Submit">

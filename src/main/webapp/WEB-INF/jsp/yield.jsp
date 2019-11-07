@@ -29,8 +29,7 @@
                             <tr>
                                 <th>Yield id</th>
                                 <th>Crop</th>
-                                <th>Weight</th>
-                                <th>Field Id</th>
+                                <th>Weight</th>                            
                                 <th>Date of Yield</th>
                             </tr>
                         </thead>
@@ -41,7 +40,6 @@
                                     <td>${a.yieldid}</td>
                                     <td>${a.crop}</td>
                                     <td>${a.weight}</td>
-                                    <td>${a.fieldid}</td>
                                     <td>${a.dateofyield}</td>
                                 </tr>
                             </c:forEach>

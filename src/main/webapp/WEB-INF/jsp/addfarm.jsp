@@ -25,19 +25,19 @@
                 <form method="POST" action="${contextPath}/addfarm">
                     <div class="form-group">
                         <label for="">Farm Name</label>
-                        <input type="text" class="form-control" id ="name" name ="name" placeholder="name">
+                        <input type="text" class="form-control" id ="name" name ="name" placeholder="name" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Breadth</label>
-                        <input type="number" class="form-control" id ="breadth" name ="breadth" placeholder="breadth">
+                        <input type="number" class="form-control" id ="breadth" name ="breadth" placeholder="breadth" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Length</label>
-                        <input type="number" class="form-control" id ="length" name ="length" placeholder="length">
+                        <input type="number" class="form-control" id ="length" name ="length" placeholder="length" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Location</label>
-                        <input type="text" class="form-control" id ="location" name ="location" placeholder="location">
+                        <input type="text" class="form-control" id ="location" name ="location" placeholder="location" required="">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success btn-block" value="Submit">
