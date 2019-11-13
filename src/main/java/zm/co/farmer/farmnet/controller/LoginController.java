@@ -122,10 +122,15 @@ public class LoginController {
 
         List<String> names = new ArrayList<>();
         List<Float> values = new ArrayList<>();
+        float max = 0;
 
         for (HashMap hashMap : getCurrentYieldByYear(Calendar.getInstance().get(Calendar.YEAR))) {
             String name = hashMap.get("crop").toString();
             Float value = Float.parseFloat(hashMap.get("weight").toString());
+
+            if (value > max) {
+                max = value;
+            }
 
             names.add(name);
             values.add(value);
@@ -140,6 +145,7 @@ public class LoginController {
         model.addAttribute("yieldnames", gson.toJson(names));
         model.addAttribute("yieldvalues", gson.toJson(values));
         model.addAttribute("year", Calendar.getInstance().get(Calendar.YEAR));
+        model.addAttribute("max", max + ((int) (max * .1f)));
 
         return "home";
     }
