@@ -10,6 +10,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zm.co.farmer.farmnet.entity.Farm;
+import zm.co.farmer.farmnet.entity.FarmEvent;
+import zm.co.farmer.farmnet.entity.Field;
+import zm.co.farmer.farmnet.repository.FarmEventRepository;
 import zm.co.farmer.farmnet.repository.FarmRepository;
 
 /**
@@ -21,6 +24,8 @@ import zm.co.farmer.farmnet.repository.FarmRepository;
 public class FarmService {
     @Autowired
     private FarmRepository farmRepository;
+    @Autowired
+    private FarmEventRepository farmEventRepository;
     
     public Farm addFarm(Farm farm){
         return farmRepository.save(farm);
@@ -35,6 +40,16 @@ public class FarmService {
     }
     
     
+    public List<FarmEvent> getFarmEventsByField(Field field){
+        return farmEventRepository.findByField(field);
+    }
     
+    public List<FarmEvent> getAllFarmEvents(){
+        return Lists.newArrayList(farmEventRepository.findAll());
+    }
+
+    public FarmEvent findEventByFieldId(Integer fieldId) {
+        return farmEventRepository.findById(fieldId).get();
+    }
     
 }

@@ -26,6 +26,9 @@ public class FarmEvent {
     private Integer id;
     @ManyToOne
     private Farm farm;
+    @ManyToOne
+    private Field field;
+    
     private Date dateofevent;
     @ManyToOne
     private User createdby;
@@ -83,10 +86,19 @@ public class FarmEvent {
         this.eventreport = eventreport;
     }
 
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
+    }
+
     @Override
     public String toString() {
-        return "FarmEvent{" + "id=" + id + ", farm=" + farm + ", dateofevent=" + dateofevent + ", createdby=" + createdby + ", description=" + description + ", eventreport=" + eventreport + '}';
+        return "FarmEvent{" + "id=" + id + ", farm=" + farm + ", field=" + field + ", dateofevent=" + dateofevent + ", createdby=" + createdby + ", description=" + description + ", eventreport=" + eventreport + '}';
     }
-      
+
+    
     
 }

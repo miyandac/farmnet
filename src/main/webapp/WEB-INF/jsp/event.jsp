@@ -15,35 +15,30 @@
     </head>
     <body id="page-top">
         <%@include file="fragments/header.jsp" %>
-    <body>
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Fields</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Field Events</h6>
             </div>
             <div class="card-body">
-                <a class="btn btn-success" href="${contextPath}/${farm.id}/addfield">Add Field</a>
-
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Length</th>
-                                <th>Breadth</th>
-                                <th>Crop</th>
-                                <th>Date Created</th>
-                                <th>&nbsp;</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Created By</th>
+                                <th>Report</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <c:forEach items="${fields}" var="a">
+                            <c:forEach items="${events}" var="a">
                                 <tr>
-                                    <td>${a.length}</td>
-                                    <td>${a.breadth}</td>
-                                    <td>${a.crop}</td>
-                                    <td>${a.datecreated}</td>
-                                    <td><a href="${contextPath}/${a.id}/events" class="btn btn-primary">View Events</a></td>
+                                    <td>${a.dateofevent}</td>
+                                    <td>${a.description}</td>
+                                    <td>${a.createdby.firstname}</td>
+                                    <td>${a.eventreport}</td>
                                 </tr>
                             </c:forEach>
 

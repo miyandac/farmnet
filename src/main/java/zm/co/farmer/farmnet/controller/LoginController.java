@@ -5,9 +5,11 @@
  */
 package zm.co.farmer.farmnet.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +23,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import zm.co.farmer.farmnet.entity.User;
+import zm.co.farmer.farmnet.service.FarmService;
 import zm.co.farmer.farmnet.service.UserService;
 import zm.co.farmer.farmnet.service.YieldService;
-
+import zm.co.farmer.farmnet.util.GenericDataService;
 
 /**
  *
@@ -34,8 +37,12 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    @Autowired
     private YieldService yieldService;
-
+    @Autowired
+    private FarmService farmService;
+    @Autowired
+    private GenericDataService genericDataService;
 
     @RequestMapping(path = {"/"})
     public String homepage(Model model) {
@@ -87,32 +94,49 @@ public class LoginController {
             return "redirect:/login?error=invalidusernamepassword";
         }
     }
+
     //invalidate session
     @RequestMapping(path = {"/logout"}, method = RequestMethod.GET)
     public String logout(HttpServletRequest request, HttpServletResponse response) {
-        
-        Cookie cookie= new Cookie("user_session_id", null);
+
+        Cookie cookie = new Cookie("user_session_id", null);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        
+
         HttpSession session = request.getSession();
-        
-        if(session != null){
+
+        if (session != null) {
             session.invalidate();
         }
-        
+
         return "redirect:/";
     }
-    
 
     @RequestMapping(path = {"/home"})
-    public String home(Model model, @CookieValue("user_session_id") String username) {
-        
+    public String home(Model model, @CookieValue("user_session_id") String username) throws SQLException {
+
         User user = userService.getUserByUsername(username);
         model.addAttribute("user", user);
-        
-        
+
+        List<String> names = new ArrayList<>();
+        List<Float> values = new ArrayList<>();
+
+        for (HashMap hashMap : getCurrentYieldByYear(Calendar.getInstance().get(Calendar.YEAR))) {
+            String name = hashMap.get("crop").toString();
+            Float value = Float.parseFloat(hashMap.get("weight").toString());
+
+            names.add(name);
+            values.add(value);
+        }
+
+        System.out.println(names);
+        System.out.println(values);
+
+        model.addAttribute("events", farmService.getAllFarmEvents());
+        model.addAttribute("yieldnames", farmService.getAllFarmEvents());
+        model.addAttribute("yieldvalues", farmService.getAllFarmEvents());
+
         return "home";
     }
 
@@ -123,18 +147,26 @@ public class LoginController {
         model.addAttribute("users", userService.getAllUsers());
 
         return "pageone";
-        
+
     }
-    
-        @RequestMapping(path = {"/field"})
-        public String field(Model model) {
+
+    @RequestMapping(path = {"/field"})
+    public String field(Model model) {
 
         // Inject user list
         model.addAttribute("users", yieldService.getYield());
 
         return "field";
-        
+
     }
-    
-    
+
+    private List<HashMap> getCurrentYieldByYear(int year) throws SQLException {
+        String sql = "SELECT fy.crop, sum(fy.weight) AS weight \n"
+                + "FROM fisp_yield fy \n"
+                + "WHERE DATE_FORMAT(fy.dateofyield,'%Y') = " + year + " \n"
+                + "GROUP BY fy.crop;";
+
+        return genericDataService.getQueryResultsAsHashmap(sql);
+    }
+
 }
