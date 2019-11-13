@@ -5,6 +5,7 @@
  */
 package zm.co.farmer.farmnet.controller;
 
+import com.google.gson.Gson;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -133,9 +134,12 @@ public class LoginController {
         System.out.println(names);
         System.out.println(values);
 
+        Gson gson = new Gson();
+
         model.addAttribute("events", farmService.getAllFarmEvents());
-        model.addAttribute("yieldnames", farmService.getAllFarmEvents());
-        model.addAttribute("yieldvalues", farmService.getAllFarmEvents());
+        model.addAttribute("yieldnames", gson.toJson(names));
+        model.addAttribute("yieldvalues", gson.toJson(values));
+        model.addAttribute("year", Calendar.getInstance().get(Calendar.YEAR));
 
         return "home";
     }
