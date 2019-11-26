@@ -15,7 +15,7 @@
     </head>
     <body id="page-top">
         <%@include file="fragments/header.jsp" %>
-        <h1>Welcome to Farm Management System</h1>
+        <h1><b>Welcome to Farm Management System</b></h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Farm Yield Report (${year})</h6>
@@ -102,9 +102,9 @@
                     labels: ${yieldnames},
                     datasets: [{
                             label: "Revenue",
-                            backgroundColor: "#4e73df",
+                            backgroundColor: "#1f7a1f",
                             hoverBackgroundColor: "#2e59d9",
-                            borderColor: "#4e73df",
+                            borderColor: "#1f7a1f",
                             data: ${yieldvalues},
                         }],
                 },

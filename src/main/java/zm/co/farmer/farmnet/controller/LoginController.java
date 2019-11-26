@@ -136,9 +136,6 @@ public class LoginController {
             values.add(value);
         }
 
-        System.out.println(names);
-        System.out.println(values);
-
         Gson gson = new Gson();
 
         model.addAttribute("events", farmService.getAllFarmEvents());
