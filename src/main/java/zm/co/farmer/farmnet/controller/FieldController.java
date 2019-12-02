@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import zm.co.farmer.farmnet.entity.Farm;
 import zm.co.farmer.farmnet.entity.Field;
 import zm.co.farmer.farmnet.entity.User;
+import zm.co.farmer.farmnet.service.CropService;
 import zm.co.farmer.farmnet.service.FarmService;
 import zm.co.farmer.farmnet.service.FieldService;
 import zm.co.farmer.farmnet.service.UserService;
@@ -32,10 +33,11 @@ public class FieldController {
     @Autowired
     private UserService userService;
     @Autowired
-    private FarmService farmService;
-    
+    private FarmService farmService;    
     @Autowired
     private FieldService fieldService;
+    @Autowired
+    private CropService cropService;
 
     @RequestMapping(path = {"/{farmid}/fields"}, method = RequestMethod.GET)
     public String viewFiels(Model model, @CookieValue("user_session_id") String username, @PathVariable("farmid") Integer farmid) {
@@ -55,6 +57,8 @@ public class FieldController {
         User user = userService.getUserByUsername(username);
         model.addAttribute("user", user);
         model.addAttribute("farm", f);
+        
+        model.addAttribute("crops", cropService.getAllCrops());
 
         return "addfield";
     }

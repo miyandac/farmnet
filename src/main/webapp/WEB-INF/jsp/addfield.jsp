@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="fragments/requirements.jsp" %>
+<%@include file="fragments/requirements.jsp" %> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
                 <form method="POST" action="${contextPath}/${farm.id}/addfield"> 
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="quantitytype">Length</label>
                         <input type="number" class="form-control" id="length" name="length" placeholder="length (in m)" required="">
                     </div>
@@ -30,16 +30,20 @@
                         <label for="breadth">Breadth</label>
                         <input type="number" class="form-control" id="breadth" name="breadth" placeholder="Breadth (in m)" required="">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="crop">Crop</label>
-                        <input type="text" class="form-control" id="name" name="crop" placeholder="Crop" required="">
+                        <select class="form-control" name="crop" id="crop" required="">
+                            <c:forEach items="${crops}" var="c">
+                                <option value="${c.name}">${c.name}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="datecreated">Date Created</label>
                         <input type="date" class="form-control" id="datecreated" name="datecreated" placeholder="Date Created" required="">
                     </div>
-                   
+
                     <div class="form-group">
                         <input type="submit" class="btn btn-success btn-block" value="Submit" />
                     </div>
