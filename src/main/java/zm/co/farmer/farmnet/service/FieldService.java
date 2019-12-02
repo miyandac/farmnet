@@ -34,5 +34,10 @@ public class FieldService {
     public Field findById(Integer fieldId) {
         return fieldRepository.findById(fieldId).get();
     }
+
+    public Field getFieldById(Integer fieldId) {
+         
+        return fieldRepository.findById(fieldId).get();
+    }
     
 }

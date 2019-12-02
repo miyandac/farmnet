@@ -52,4 +52,7 @@ public class FarmService {
         return farmEventRepository.findById(fieldId).get();
     }
     
+    public FarmEvent addfarmEvent(FarmEvent f){
+        return farmEventRepository.save(f);
+    }
 }

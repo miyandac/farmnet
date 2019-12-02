@@ -42,6 +42,7 @@ public class MyConnection {
             conn = DriverManager.getConnection(database, dbuser, dbpassword);  
 
         } catch (Exception e) {
+            e.getMessage();
             System.out.println(e);
         }
 
