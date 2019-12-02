@@ -12,5 +12,4 @@
 
   <!-- Custom styles for this template-->
   <link href="${contextPath}/css/sb-admin-2.min.css" rel="stylesheet">
-  <link href ="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
   <link href ="${contextPath}/css/bootstrap-datepicker.css" rel="stylesheet">
