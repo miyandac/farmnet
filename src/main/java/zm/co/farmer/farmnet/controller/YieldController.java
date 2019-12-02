@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import zm.co.farmer.farmnet.entity.User;
 import zm.co.farmer.farmnet.entity.Yield;
+import zm.co.farmer.farmnet.service.CropService;
 import zm.co.farmer.farmnet.service.UserService;
 import zm.co.farmer.farmnet.service.YieldService;
 
@@ -29,8 +30,12 @@ public class YieldController {
     
     @Autowired
     private YieldService yieldService;
+    
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private CropService cropService;
     
    
     @RequestMapping(path = {"/addyield"}, method =RequestMethod.GET)
@@ -38,6 +43,7 @@ public class YieldController {
         
         User user = userService.getUserByUsername(username);
         model.addAttribute("user", user);
+        model.addAttribute("crops", cropService.getAllCrops());
         
        return "addyield";
     }

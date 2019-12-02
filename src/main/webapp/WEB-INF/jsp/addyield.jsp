@@ -25,7 +25,11 @@
                 <form method="POST" action="${contextPath}/addyield">
                     <div class="form-group">
                         <label for="">Crop</label>
-                        <input type="text" class="form-control" id ="crop" name ="crop" placeholder="crop" required="">
+                        <select class="form-control" name="crop" id="crop" required="">
+                            <c:forEach items="${crops}" var="c">
+                                <option value="${c.name}">${c.name}</option>
+                            </c:forEach>
+                        </select> 
                     </div>
                     <div class="form-group">
                         <label for="">Weight</label>
