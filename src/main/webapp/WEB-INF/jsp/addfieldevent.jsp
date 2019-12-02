@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="dateofevent">Date of Event</label>
-                        <input type="date" class="form-control" id="dateofevent" name="dateofevent" placeholder="Date Created" required="">
+                        <input type="text" class="form-control" id="dateofevent" name="dateofevent" placeholder="Date Created" required="">
                     </div>
 
 
@@ -46,6 +46,12 @@
                 </form>
             </div>
         </div>
-        <%@include file="fragments/footer.jsp" %>    
+        <%@include file="fragments/footer.jsp" %> 
+        <script type="text/javascript">
+            $("#dateofevent").datepicker({
+                format:'yyyy-mm-dd'
+            });
+                    
+        </script>
     </body>
 </html>

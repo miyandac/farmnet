@@ -46,3 +46,6 @@
   
   <!-- Page level custom scripts -->
   <script src="${contextPath}/js/demo/datatables-demo.js"></script>
+  <script src="${contextPath}/js/bootstrap-datepicker.min.js"></script>
+  
+      
