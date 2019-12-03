@@ -77,7 +77,7 @@ public class FieldEventController {
     public String addfieldEvent(Model model,
             @ModelAttribute("description") String description,
             @ModelAttribute("eventreport") String event,
-            @ModelAttribute("dateofevent") @DateTimeFormat(pattern ="yyyy-mm-dd") Date dateofevent,
+            @ModelAttribute("dateofevent") @DateTimeFormat(pattern ="yyyy-MM-dd") Date dateofevent,
             @ModelAttribute("farm") Integer farmId,
             @ModelAttribute("field") Integer fieldId, @CookieValue("user_session_id") String username) {
 

@@ -55,7 +55,7 @@ public class YieldController {
             @ModelAttribute("quantity") Float quantity, 
             @ModelAttribute("dateofyield") String dateofyield) throws ParseException {
      
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date date = format.parse(dateofyield);
         Yield yield = new Yield();
         yield.setCrop(crop);

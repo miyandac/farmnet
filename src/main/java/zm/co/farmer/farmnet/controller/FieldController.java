@@ -71,7 +71,7 @@ public class FieldController {
             @ModelAttribute("length") Float length) throws ParseException {
         Farm farm = farmService.getById(farmid);
         
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         
         Field f = new Field();
         f.setBreadth(breadth);
