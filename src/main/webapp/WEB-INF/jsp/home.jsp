@@ -101,7 +101,7 @@
                 data: {
                     labels: ${yieldnames},
                     datasets: [{
-                            label: "Revenue",
+                            label: "Harvest",
                             backgroundColor: "#1f7a1f",
                             hoverBackgroundColor: "#2e59d9",
                             borderColor: "#1f7a1f",
@@ -170,7 +170,7 @@
                         callbacks: {
                             label: function (tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                             }
                         }
                     },
