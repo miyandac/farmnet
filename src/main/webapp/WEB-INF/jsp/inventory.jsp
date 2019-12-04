@@ -32,7 +32,7 @@
                                 <th>Suppler</th>
                                 <th>Quantity </th>
                                 <th>Bar code</th>
-                              
+                                <th>Date Arrived</th>                              
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +44,7 @@
                                     <td>${a.supplier}</td>
                                     <td>${a.quantity} ${a.quantitytype}</td>
                                     <td>${a.barcodenumber}</td>
+                                    <td>${a.datearrived}</td>
                                    
                                 </tr>
                             </c:forEach>

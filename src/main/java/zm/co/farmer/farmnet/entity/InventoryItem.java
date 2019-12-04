@@ -5,6 +5,7 @@
  */
 package zm.co.farmer.farmnet.entity;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class InventoryItem {
     private String batchid;
     private String barcodenumber;
     private Boolean available;
+    private Date datearrived = new Date();
 
     public InventoryItem() {
     }
@@ -105,6 +107,14 @@ public class InventoryItem {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public Date getDatearrived() {
+        return datearrived;
+    }
+
+    public void setDatearrived(Date datearrived) {
+        this.datearrived = datearrived;
     }
 
     @Override
